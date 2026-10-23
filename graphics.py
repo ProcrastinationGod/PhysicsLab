@@ -1,11 +1,15 @@
-import withAirResistance, withoutAirResistance
+from simulateFlight import FlightSimulation
 import matplotlib.pyplot as plt
 
-# Без сопротивления воздуха
-plt.plot(*zip(*withoutAirResistance.list_coords), color="blue")
+withAirResistance = FlightSimulation()
+withAirResistance.simulate(airResistance=True)
 
-# С сопротивлением воздуха
-plt.plot(*zip(*withAirResistance.list_coords), color="red")
+plt.plot(*zip(*withAirResistance.list_coords), color="blue")
+
+withoutAirResistance = FlightSimulation()
+withoutAirResistance.simulate(airResistance=False)
+
+plt.plot(*zip(*withoutAirResistance.list_coords), color="red")
 
 plt.xlabel("Координата X, м")
 plt.ylabel("Координата Y, м")
