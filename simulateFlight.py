@@ -53,3 +53,4 @@ class FlightSimulation:
         self.H = max_height_item["height"]
         self.t_up = max_height_item["time"]
         self.t_down = self.T - self.t_up
+    
