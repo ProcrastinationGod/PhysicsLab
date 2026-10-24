@@ -16,6 +16,8 @@ class FlightSimulation:
 
         y = y_0
         x = x_0
+
+        # Проекции на OX и OY
         v_x = v_0 * math.cos(alpha)
         v_y = v_0 * math.sin(alpha)
         t = 0.0
@@ -53,4 +55,3 @@ class FlightSimulation:
         self.H = max_height_item["height"]
         self.t_up = max_height_item["time"]
         self.t_down = self.T - self.t_up
-    
