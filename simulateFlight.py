@@ -30,8 +30,6 @@ class FlightSimulation:
             listVariables.append({
                             "coordinates" : (x, y),
                             "speed" : v,
-                            "height" : y,
-                            "length" : x,
                             "time" : t
                             })
             
@@ -48,10 +46,10 @@ class FlightSimulation:
 
         self.list_coords = [item["coordinates"] for item in listVariables]
         self.T = listVariables[-1]["time"]
-        self.L = listVariables[-1]["length"]
+        self.L = listVariables[-1]["coordinates"][0]
         self.v_end = listVariables[-1]["speed"]
 
-        max_height_item = max([item for item in listVariables], key=lambda x: x["height"])
-        self.H = max_height_item["height"]
+        max_height_item = max([item for item in listVariables], key=lambda x: x["coordinates"][1])
+        self.H = max_height_item["coordinates"][1]
         self.t_up = max_height_item["time"]
         self.t_down = self.T - self.t_up
