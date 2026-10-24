@@ -3,16 +3,8 @@ import matplotlib.pyplot as plt
 
 
 class FlightSimulation:
-    def __init__(self):
-        self.H = 0.0
-        self.L = 0.0
-        self.T = 0.0
-        self.v_end = 0.0
-        self.list_coords = []
-        self.t_up = 0.0
-        self.t_down = 0.0
-    
-    def simulate(self, airResistance, C_w=0.25, p=1.29, g=9.81, x_0=0.0, y_0=0.0, dt=0.001, m=0.22, D=0.27, v_0=17.6, alpha=63):
+
+    def __init__(self, airResistance, C_w=0.25, p=1.29, g=9.81, x_0=0.0, y_0=0.0, dt=0.001, m=0.22, D=0.27, v_0=17.6, alpha=63):
         S = math.pi * (D / 2) ** 2
         # Перевод alpha в радианы
         alpha = math.radians(alpha)
@@ -61,5 +53,3 @@ class FlightSimulation:
         self.H = max_height_item["height"]
         self.t_up = max_height_item["time"]
         self.t_down = self.T - self.t_up
-
-        return self
